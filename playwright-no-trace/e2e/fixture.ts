@@ -44,6 +44,7 @@ export const test = baseTest.extend<{}, { workerStorageState: string }>({
         await page.getByLabel('Confirm Password').fill(account.password);
 
         await page.getByRole('button', { name: 'Submit' }).click();
+        await new Promise((resolve) => { setTimeout(resolve, 60000); });
         // Wait until the page receives the cookies.
         //
         // Sometimes login flow sets cookies in the process of several redirects.
